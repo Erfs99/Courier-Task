@@ -48,8 +48,7 @@ class DeliveryStatus(models.Model):
         if self.status == 'Delivered':
             try:
                 courier=CourierMan.objects.get(name=self.courier_man.name)
-                courier.salary += self.details.price 
-                courier.reduction_salary = 0     
+                courier.salary += self.details.price    
                 courier.save()
             except:
                 pass
